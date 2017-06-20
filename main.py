@@ -29,11 +29,13 @@ def newpost():
         if request.method == 'POST':
             post_title = request.form['post-title']
             body = request.form['new-body']
-            post_id = request.form['post-id']
+            #post_id = request.form['post-id']
+            #post = Blog.query.get(post_id)
             #request.form pulls the information from my form
             #new_entry calls the init in my class
             body_valid = True
             
+
             if len(body) is  0:
                 body_valid = False
                 body_error = 'Oops, it looks like you forgot to add a body!'
@@ -45,11 +47,9 @@ def newpost():
                 return render_template('posts.html', pagetitle=pagetitle, post_title='', body=body, body_error='',title_error=title_error)
                     
             new_entry = Blog(post_title, body)
-            #creating new entry after checking validation
             db.session.add(new_entry)
             #this adds 'new_entry = Blog(post_title, body)' to my database. it has all of the information I need!
             db.session.commit()  
-
             #actually the final commit to add the entry to the database.
         #return render_template('posts.html', pagetitle=pagetitle, blog_post=blog_post, new_entry=new_entry)
         #return redirect('/blog')
