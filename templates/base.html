@@ -3,13 +3,38 @@
     <head>
         <style>
             .textarea {
-                margin: 10px 0;
-                width: 540px;
+                margin: 10px;
+                width: 200px;
                 height: 120px;
+                
+            }
+            .error{
+                color: red;
+            }
+            .title{
+                font-size: 2em;
+        
+            }
+            .body{
+                font-size: 1.5em;
+
+            }
+            .postbody{
+                font-size: 2em;
+            }
+            h1{
+                text-align: center;
+                font-size: 3em;
             }
         </style>
         <title>{{pagetitle}}</title>
     </head>
+    <header>
+    <nav>
+    <a href="/blog">Main Blog Page </a> |
+    <a href="/newpost">Add a New Post</a>
+    </nav>
+    </header>
 <body>
     {% block content %}
     {% endblock %}

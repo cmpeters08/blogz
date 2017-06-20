@@ -2,6 +2,30 @@
 
 {% block content %}
 
-<h1> success! {{post_title}} has been accepted!</h2>
-
+<h1> Awesome! {{post_title}} has been accepted! </h1>
+<p>
+{{post_title}}
+<br>
+{{body}}
+</p>
+Looks good!
 {% endblock %}
+
+
+<a href='/blog?id={{post.id}}'>{{post.title}}</a>
+
+def main_page():
+    blog_id = request.args.get('blog-id', None)
+    post_title = request.args.get('post_title')
+    body = request.args.get('body')
+    if blog_id is None:
+        blog_post = Blog.query.all()
+        return render_template('allposts.html', blog_post=blog_post)
+    #I don't need to send parameters through redirect. all redirect does is push me to a new page. 
+    #the database knows what we're tracking!
+    if blog_id is not None:
+        post_id = Blog.query.get(id)
+        blog_post = Blog(title, body)
+        #return redirect('/blog?id={}'.format(post_id))
+        return render_template('singlepost.html', blog_post=blog_post, post_id=post_id)
+    return redirect('/blog?id={}'.format(post_id))

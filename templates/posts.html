@@ -3,11 +3,11 @@
 {% block content %}
 
 <h1>Add a Blog Entry</h1>
-<form action='/' method='POST'>
+<form action='/newpost' method='POST'>
     <label>
         New Post Title:
         <br>
-        <input type="text" name='post-title' value=''/>
+        <input class="titlearea" type="text" name='post-title' value=''/>
     </label>
     <p class="error">{{title_error}}</p>
     <label>
@@ -16,7 +16,7 @@
         <input class='textarea' type="textarea" name='new-body' value='' />
     </label>
         <p class="error">{{body_error}}</p>
-    <input type="submit" value='Submit Post' />
+    <input type="submit" value='Add Entry' />
     </form>
 
-    {% endblock %}
+ {% endblock %}
