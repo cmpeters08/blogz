@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> Login to your Blogz </h1>
+<h3>Don't have an account yet? Create one <a href='/signup'>here!</a></h3>
+<form action='/login' method='POST'>
+<table>
+    <tr>
+   <td> <label for='username'>Username: </label> </td>
+   <td>
+       <input type="text" name='username' value=''/>
+    </td>
+   </td>
+    </tr>
+    <tr>
+    <td><label for='password'>Password:  </label></td>
+    <td>
+        <input type="text" name='password' value='' />
+    </td>
+    </tr>
+    </table>
+    <input type="submit" value='Login' />
+    </form>
+
+ {% endblock %}

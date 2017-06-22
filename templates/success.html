@@ -4,6 +4,8 @@
 
 {% block content %}
 
+<h1> Looks Good! something is working right now! </h1>
+<!--
 <h1> Awesome! {{post_title}} has been accepted! </h1>
 <p>
 {{post_title}}
@@ -31,3 +33,24 @@ def main_page():
         #return redirect('/blog?id={}'.format(post_id))
         return render_template('singlepost.html', blog_post=blog_post, post_id=post_id)
     return redirect('/blog?id={}'.format(post_id))
+    -->
+
+    if len(username) < 3:
+            username_error = 'Username is too short, username must be between 3 and 20 characters in lenth'
+            username_valid = False
+
+    {% extends "base.html" %}
+
+{% block content %}
+
+<h1> Build a Blog </h1>
+{% for post in blog_post %}
+<p class='title'>
+<a href='/blog?id={{post.id}}'>{{post.title}}</a>
+</p>
+<p class='body'>{{post.body}}</p>
+<footer> written by:<a href='/blog?username={{post.owner.username}}'> {{post.owner.username}} </a></footer>
+<hr />
+{% endfor %}
+
+{% endblock %}

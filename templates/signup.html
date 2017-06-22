@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> Register your own blog </h1>
+<h3>Already have an account? Login <a href='/login'>here</a></h3>
+<form action='/signup' method='POST'>
+<table>
+    <tr>
+   <td> <label for='username'>Username: </label> </td>
+   <td>
+       <input type="text" name='username' value=''/>
+    </td>
+   </td>
+    </tr>
+    <tr>
+    <td><label for='password'>Password:  </label></td>
+    <td>
+        <input type="text" name='password' value='' />
+    </td>
+    </tr>
+     <td><label for='verify-password'>Verify Password:  </label></td>
+    <td>
+        <input type="text" name='verify-password' value='' />
+    </td>
+    </tr>
+    </table>
+    <input type="submit" value='Sign Up' />
+    </form>
+
+ {% endblock %}

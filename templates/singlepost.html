@@ -6,5 +6,6 @@
 <p class='postbody'>
     {{post_id.body}}
 </p>
-
+<footer>written by: <a href='{{post_id.owner.username}}'> {{post_id.owner.username}}</footer>
+<!-- since username is part of the user class I need .owner and .username -->
 {% endblock %}
